@@ -5,7 +5,7 @@ public class Converter {
 
     public static double convertMilesToKilometers(double miles) {
         if (miles <= 0) {
-            return -1;
+            throw new IllegalArgumentException("Zero or negative number");
         }
 
         if (miles > 1_000_000) {

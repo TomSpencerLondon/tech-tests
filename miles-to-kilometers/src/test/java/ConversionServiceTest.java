@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class ConversionServiceTest {
     @Test
     public void normalNumericEntryPrintsResult() {
-        ConversionService converter = new ConversionService();
+        ConversionService converter = new ConversionService(System.out, System.err);
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         ByteArrayOutputStream err = new ByteArrayOutputStream();
         PrintStream byteArrayOutputStream = new PrintStream(out);
@@ -27,6 +27,10 @@ public class ConversionServiceTest {
         String error = err.toString();
 
         assertEquals("Error processing row.\n", error);
-        assertEquals("ID: 1, Miles: 1.00, Kilometers: 1.61, Note: valid\n", result);
+        assertEquals(
+                "ID: 1, Miles: 10.00, Kilometers: 16.09, Note: valid\n" +
+                        "ID: 3, Miles: -5.00, Kilometers: -1.00, Note: negative\n",
+
+                result);
     }
 }
