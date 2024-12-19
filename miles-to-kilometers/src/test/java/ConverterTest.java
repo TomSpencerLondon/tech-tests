@@ -32,4 +32,10 @@ public class ConverterTest {
                 IllegalArgumentException.class,
                 () -> Converter.convertMilesToKilometers(1_000_001.00));
     }
+
+    @Test
+    public void excessivePrecisionGoesToTwoDecimalPlaces() {
+        double result = Converter.convertMilesToKilometers(8.12345678912346);
+        assertEquals(13.07, result, 0.00);
+    }
 }
