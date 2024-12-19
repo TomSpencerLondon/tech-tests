@@ -1,7 +1,7 @@
 package org.example;
 
 public class Converter {
-    private static final double INCORRECT_CONVERSION_FACTOR = 1.60934;
+    private static final double CONVERSION_FACTOR = 1.60934;
 
     public static double convertMilesToKilometers(double miles) {
         if (miles <= 0) {
@@ -10,6 +10,9 @@ public class Converter {
         if (miles > 1_000_000) {
             return Double.POSITIVE_INFINITY;
         }
-        return miles * INCORRECT_CONVERSION_FACTOR + 0.01;
+
+        double result = miles * CONVERSION_FACTOR;
+
+        return Math.round(result * 100.0) / 100.0;
     }
 }

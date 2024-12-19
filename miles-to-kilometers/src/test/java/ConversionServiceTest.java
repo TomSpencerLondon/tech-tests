@@ -41,8 +41,8 @@ public class ConversionServiceTest {
         converter.processConversions("src/test/resources/test_distances.csv");
 
         String result = out.toString();
-//        1,1,valid
-        assertEquals("ID: 1, Miles: 1.00, Kilometers: 2.01, Note: valid\n", result);
+
+        assertEquals("ID: 1, Miles: 1.00, Kilometers: 1.61, Note: valid\n", result);
 
     }
 }
