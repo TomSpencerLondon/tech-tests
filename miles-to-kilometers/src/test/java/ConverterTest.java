@@ -20,8 +20,16 @@ public class ConverterTest {
     @Test
     public void minusNumberThrowsException() {
         assertThrows(
-                "Zero or negative number",
+                "Zero, negative or excessively large number",
                 IllegalArgumentException.class,
                 () -> Converter.convertMilesToKilometers(-1.0));
+    }
+
+    @Test
+    public void overOneMillionAndOneThrowsException() {
+        assertThrows(
+                "Zero, negative or excessively large number",
+                IllegalArgumentException.class,
+                () -> Converter.convertMilesToKilometers(1_000_001.00));
     }
 }
