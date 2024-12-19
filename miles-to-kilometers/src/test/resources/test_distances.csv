@@ -4,3 +4,4 @@ id,miles,note
 3,-5,negative
 4,0,Zero miles
 5,15.5,Valid Entry
+6,,Missing value
