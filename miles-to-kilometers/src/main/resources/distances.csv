@@ -1,0 +1,10 @@
+id,miles,note
+1,10,Valid Entry
+2,abc,Non-numeric miles
+3,-5,Negative miles
+4,0,Zero miles
+5,15.5,Valid Entry
+6,,Missing value
+7,10000000000,Excessively large number
+8,8.123456789123456,Excessive precision
+9,5,Valid Entry

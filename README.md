@@ -105,4 +105,4 @@ This repository is designed to help you practice identifying and fixing common b
 4. Write unit tests to validate your fixes and handle edge cases.
 5. Repeat the process with other projects to improve your debugging skills.
 
-By practicing these scenarios, you'll gain confidence and proficiency in identifying and resolving bugs, preparing you for real-world tech tests.# tech-tests
+By practicing these scenarios, you'll gain confidence and proficiency in identifying and resolving bugs, preparing you for real-world tech tests.
