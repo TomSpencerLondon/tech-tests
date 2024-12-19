@@ -27,9 +27,11 @@ public class ConversionServiceTest {
         String error = err.toString();
 
         assertEquals("Error processing row.\n" +
+                "Error processing row.\n" +
                 "Error processing row.\n", error);
         assertEquals(
-                "ID: 1, Miles: 10.00, Kilometers: 16.09, Note: valid\n",
+                "ID: 1, Miles: 10.00, Kilometers: 16.09, Note: valid\n" +
+                "ID: 5, Miles: 15.50, Kilometers: 24.94, Note: Valid Entry\n",
                 result);
     }
 }

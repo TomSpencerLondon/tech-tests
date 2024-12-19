@@ -2,3 +2,5 @@ id,miles,note
 1,10,valid
 2,abc,non-numeric
 3,-5,negative
+4,0,Zero miles
+5,15.5,Valid Entry

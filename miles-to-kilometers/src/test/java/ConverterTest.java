@@ -12,6 +12,12 @@ public class ConverterTest {
     }
 
     @Test
+    public void convertFifteenAndAHalfToKilometers() {
+        double result = Converter.convertMilesToKilometers(15.5);
+        assertEquals(24.94, result, 0.00);
+    }
+
+    @Test
     public void minusNumberThrowsException() {
         assertThrows(
                 "Zero or negative number",
