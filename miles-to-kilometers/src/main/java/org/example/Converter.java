@@ -1,7 +1,7 @@
 package org.example;
 
 public class Converter {
-    private static final double INCORRECT_CONVERSION_FACTOR = 2.0;
+    private static final double INCORRECT_CONVERSION_FACTOR = 1.60934;
 
     public static double convertMilesToKilometers(double miles) {
         if (miles <= 0) {
