@@ -112,3 +112,38 @@ id,miles,note
 ---
 
 Good luck, and remember: **Requirements are vague on purpose. Your job is to ask the right questions.**
+
+--- 
+
+## Attempt
+
+### 1. **Clarify Requirements**
+- read distances and miles from CSV
+- convert distances to kilometers using a consistent conversion factor
+- non-numeric values should be logged and then continue to the next row
+- negative / zero should be logged and then continue to the next row
+- precision for the kilometers conversion?
+  - two decimal places
+- log and continue if numbers are below 1 log and continue
+- 1 million is largest miles result
+- invalid rows should be skipped
+
+### 2. **Initial Code Review**
+- Look for obvious errors or misalignments with the requirements.
+- Check for common mistakes like typos, logic errors, or missing conditions.
+
+### 3. **Reproduce the Issue**
+- Identify and reproduce the bug consistently.
+- Document the steps leading to the issue.
+
+### 4. **Examine the Code**
+- Inspect the relevant code sections for potential flaws.
+- Check for off-by-one errors, incorrect conversions, or missed conditions.
+
+### 5. **Test Fixes**
+- Implement a fix and verify it solves the problem.
+- Ensure no new issues are introduced.
+
+### 6. **Create Tests**
+- Write tests to cover the fixed issue and other edge cases.
+- Confirm all tests pass successfully.
