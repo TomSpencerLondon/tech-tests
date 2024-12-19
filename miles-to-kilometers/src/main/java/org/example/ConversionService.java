@@ -18,12 +18,17 @@ public class ConversionService {
                     isHeader = false;
                     continue;
                 }
+
                 String[] tokens = line.split(",");
                 int id = Integer.parseInt(tokens[0]);
-                double miles = Double.parseDouble(tokens[1]);
-                double kilometers = Converter.convertMilesToKilometers(miles);
-                System.out.printf("ID: %d, Miles: %.2f, Kilometers: %.2f, Note: %s%n",
-                        id, miles, kilometers, tokens[2]);
+                try {
+                    double miles = Double.parseDouble(tokens[1]);
+                    double kilometers = Converter.convertMilesToKilometers(miles);
+                    System.out.printf("ID: %d, Miles: %.2f, Kilometers: %.2f, Note: %s%n",
+                            id, miles, kilometers, tokens[2]);
+                } catch (NumberFormatException e) {
+                    System.err.println("Error processing row.");
+                }
             }
         } catch (Exception e) {
             System.err.println("Error processing row.");

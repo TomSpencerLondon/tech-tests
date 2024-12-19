@@ -7,6 +7,7 @@ public class Converter {
         if (miles <= 0) {
             return -1;
         }
+
         if (miles > 1_000_000) {
             return Double.POSITIVE_INFINITY;
         }

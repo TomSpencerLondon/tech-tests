@@ -12,15 +12,13 @@ import static org.junit.Assert.assertTrue;
 
 public class ConversionServiceTest {
     @Test
-    @Ignore
-    public void nonNumericValueShouldBeSkippedAndLogged() {
+    public void normalNumericEntryPrintsResult() {
         ConversionService converter = new ConversionService();
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        PrintStream byteArrayOutputStream = new PrintStream(out);
-        System.setOut(byteArrayOutputStream);
         ByteArrayOutputStream err = new ByteArrayOutputStream();
+        PrintStream byteArrayOutputStream = new PrintStream(out);
         PrintStream byteArrayErrorStream = new PrintStream(err);
-
+        System.setOut(byteArrayOutputStream);
         System.setErr(byteArrayErrorStream);
 
         converter.processConversions("src/test/resources/test_distances.csv");
@@ -28,21 +26,7 @@ public class ConversionServiceTest {
         String result = out.toString();
         String error = err.toString();
 
-        assertTrue(result.isEmpty());
-    }
-
-    @Test
-    public void normalNumericEntryPrintsResult() {
-        ConversionService converter = new ConversionService();
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        PrintStream byteArrayOutputStream = new PrintStream(out);
-        System.setOut(byteArrayOutputStream);
-
-        converter.processConversions("src/test/resources/test_distances.csv");
-
-        String result = out.toString();
-
+        assertEquals("Error processing row.\n", error);
         assertEquals("ID: 1, Miles: 1.00, Kilometers: 1.61, Note: valid\n", result);
-
     }
 }
