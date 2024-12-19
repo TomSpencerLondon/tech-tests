@@ -118,30 +118,30 @@ Good luck, and remember: **Requirements are vague on purpose. Your job is to ask
 ## Attempt
 
 ### 1. **Clarify Requirements**
-- read distances and miles from CSV
-- convert distances to kilometers using a consistent conversion factor
-- non-numeric values should be logged and then continue to the next row
-- negative / zero should be logged and then continue to the next row
+- read distances and miles from CSV [done]
+- convert distances to kilometers using a consistent conversion factor [done]
+- non-numeric values should be logged and then continue to the next row [done]
+- negative / zero should be logged and then continue to the next row [done]
 - precision for the kilometers conversion?
-  - two decimal places
-- log and continue if numbers are below 1 log and continue
-- 1 million is largest miles result
-- invalid rows should be skipped
+  - two decimal places [done]
+- log and continue if numbers are below 1 log and continue [done]
+- 1 million is largest miles result [done]
+- invalid rows should be skipped [done]
 
 ### 2. **Initial Code Review**
-- Look for obvious errors or misalignments with the requirements.
-- Check for common mistakes like typos, logic errors, or missing conditions.
+- Look for obvious errors or misalignments with the requirements. [done]
+- Check for common mistakes like typos, logic errors, or missing conditions. [done]
 
 ### 3. **Reproduce the Issue**
-- Identify and reproduce the bug consistently.
-- Document the steps leading to the issue.
+- Identify and reproduce the bug consistently. [done]
+- Document the steps leading to the issue. [get better]
 
 ### 4. **Examine the Code**
 - Inspect the relevant code sections for potential flaws.
 - Check for off-by-one errors, incorrect conversions, or missed conditions.
 
 ### 5. **Test Fixes**
-- Implement a fix and verify it solves the problem.
+- Implement a fix and verify it solves the problem. [done]
 - Ensure no new issues are introduced.
 
 ### 6. **Create Tests**
