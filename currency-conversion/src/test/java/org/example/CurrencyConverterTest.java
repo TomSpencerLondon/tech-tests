@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,10 +8,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CurrencyConverterTest {
 
+    private Bank bank;
+    @BeforeEach
+    void setUp() {
+        bank = new Bank();
+    }
+
     @Test
     void convertsDollarsToEuros() {
 //      1 dollar = 0.9518 Euros (dollars to euros)
-        double result = CurrencyConverter.convertCurrency(100, 0.9518);
+        double result = bank.convertCurrency(100, 0.9518);
 
         assertEquals(95.18, result);
     }
@@ -18,7 +25,7 @@ public class CurrencyConverterTest {
     @Test
     void convertsJapaneseYenToDollars() {
 //      1 JPY = 0.006656 USD
-        double result = CurrencyConverter.convertCurrency(0, 0.006656);
+        double result = bank.convertCurrency(0, 0.006656);
 
         assertEquals(0, result);
     }
@@ -26,7 +33,7 @@ public class CurrencyConverterTest {
     @Test
     void convertsUSDollarsToIndianRupees() {
 //        1 USD = 84.80 INR
-        double result = CurrencyConverter.convertCurrency(150.75, 0.848);
+        double result = bank.convertCurrency(150.75, 0.848);
 
         assertEquals(127.84, result);
     }
@@ -34,7 +41,7 @@ public class CurrencyConverterTest {
     @Test
     void convertsUSDollarsToEuros() {
         //        1 USD = 84.80 INR
-        double result = CurrencyConverter.convertCurrency(150.75, 0.848);
+        double result = bank.convertCurrency(150.75, 0.848);
 
         assertEquals(127.84, result);
     }
@@ -43,21 +50,21 @@ public class CurrencyConverterTest {
     void negativeNumbersThrowsIllegalArgumentException() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> CurrencyConverter.convertCurrency(-50, 1.26935));
+                () -> bank.convertCurrency(-50, 1.26935));
     }
 
     @Test
     void amountsOverOneMillionThrowIllegalArgumentException() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> CurrencyConverter.convertCurrency(1_000_001, 1.26935));
+                () -> bank.convertCurrency(1_000_001, 1.26935));
     }
 
     @Test
     void noExcessivePrecision() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> CurrencyConverter.convertCurrency(1_000_001, 1.26935));
+                () -> bank.convertCurrency(1_000_001, 1.26935));
     }
 
     //7,10_000_000_000,USD,EUR,Excessively large amount
