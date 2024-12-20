@@ -121,4 +121,49 @@ id,amount,source_currency,target_currency,note
 Good luck, and remember: **Requirements are vague on purpose. Your job is to ask the right questions.**
 
 --- 
+1. **Clarify Requirements with the BA:**
+    - What should happen with negative, zero, or missing amounts?
+    - What level of rounding/precision is acceptable for conversions?
+    - Should the application handle different currency formats (e.g., symbols vs codes)?
+    - How to treat rows with invalid or incomplete data? Skip, error, or fallback?
 
+2. **Debug and Fix the Application:**
+    - Resolve existing bugs, especially for edge cases.
+    - Implement robust error handling and input validation.
+    - Ensure the output aligns with the clarified requirements.
+
+3. **Enhance the Application:**
+    - Refactor for clean, maintainable, and extensible code.
+    - Optionally, prepare the application to integrate with live exchange rate APIs.
+    - Ensure accurate floating-point arithmetic for financial calculations.
+
+4. **Document the Application:**
+    - Describe how it works and the decisions made.
+    - Include clear instructions for running the application.
+
+Debugging Checklist
+1. Clarify Requirements
+   - zero amounts - return
+   - Logging + next row
+     - negative amounts (log + go to the next row)
+     - Excessively large numbers should be logged and rejected
+     - log error for missing amounts
+   - Round to 2 decimals
+   - Conversion rate = 4 decimal places
+   - symbols and codes $ = USD, € = EUR, £ = GBP, ¥ = JPY, ₹ = INR
+
+2. Initial Code Review
+   Look for obvious errors or misalignments with the requirements.
+   Check for common mistakes like typos, logic errors, or missing conditions.
+3. Reproduce the Issue
+   Identify and reproduce the bug consistently.
+   Document the steps leading to the issue.
+4. Examine the Code
+   Inspect the relevant code sections for potential flaws.
+   Check for off-by-one errors, incorrect conversions, or missed conditions.
+5. Test Fixes
+   Implement a fix and verify it solves the problem.
+   Ensure no new issues are introduced.
+6. Create Tests
+   Write tests to cover the fixed issue and other edge cases.
+   Confirm all tests pass successfully.
