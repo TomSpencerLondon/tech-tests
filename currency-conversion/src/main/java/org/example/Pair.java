@@ -2,11 +2,19 @@ package org.example;
 
 public class Pair {
     private final Currency from;
-    private final Currency currency;
+    private final Currency to;
 
     public Pair(Currency from, Currency to) {
         this.from = from;
-        currency = to;
+        this.to = to;
+    }
+
+    public Currency from() {
+        return from;
+    }
+
+    public Currency to() {
+        return to;
     }
 
     @Override
@@ -17,13 +25,13 @@ public class Pair {
         Pair pair = (Pair) o;
 
         if (from != pair.from) return false;
-        return currency == pair.currency;
+        return to == pair.to;
     }
 
     @Override
     public int hashCode() {
         int result = from.hashCode();
-        result = 31 * result + currency.hashCode();
+        result = 31 * result + to.hashCode();
         return result;
     }
 }

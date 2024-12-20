@@ -1,8 +1,20 @@
 package org.example;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Bank {
 
+    Map<Pair, BigDecimal> currencyMap;
 
+    public Bank() {
+        this.currencyMap = new HashMap<>();
+    }
+
+    public void addConversionRate(Pair pair, BigDecimal conversionRate) {
+        currencyMap.put(pair, conversionRate);
+    }
 
     public double convertCurrency(double amount, double rate) {
         if (amount < 0) {
@@ -13,5 +25,11 @@ public class Bank {
 
         double result = amount * rate;
         return Math.round(result * 100.0) / 100.0;
+    }
+
+    public Money convert(Money money, Pair pair) {
+        BigDecimal conversionRate = currencyMap.get(pair);
+
+        return money.convert(conversionRate, pair.to());
     }
 }

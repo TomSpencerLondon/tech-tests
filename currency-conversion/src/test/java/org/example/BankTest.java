@@ -78,14 +78,16 @@ public class BankTest {
     class NewConvert {
         @Test
         void givenMoneyAndCurrencyPairConvertsCorrectly() {
+            Pair pair = new Pair(Currency.USD, Currency.EUR);
+            BigDecimal conversionRate = new BigDecimal("0.9518");
+            bank.addConversionRate(pair, conversionRate);
             BigDecimal amount = new BigDecimal("100");
             Money money = new Money(amount, Currency.USD);
-            Pair pair = new Pair(Currency.USD, Currency.EUR);
 
-//      1 dollar = 0.9518 Euros (dollars to euros)
-//            double result = bank.convertCurrency(100, 0.9518);
-//
-//            assertEquals(95.18, result);
+            Money result = bank.convert(money, pair);
+
+            assertEquals(new BigDecimal("95.18"), result.amount());
+            assertEquals(Currency.EUR, result.currency());
         }
     }
 }
