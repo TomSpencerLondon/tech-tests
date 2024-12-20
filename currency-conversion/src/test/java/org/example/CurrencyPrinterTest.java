@@ -44,8 +44,6 @@ public class CurrencyPrinterTest {
                 "TransactionId: 5, USD to INR: ₹127.84\n" +
                 "TransactionId: 8, EUR to USD: $10.65\n" +
                 "TransactionId: 9, GBP to USD: $95.21\n"
-
-
         );
     }
 }
