@@ -1,6 +1,9 @@
 package org.example;
 
 public class Bank {
+
+
+
     public double convertCurrency(double amount, double rate) {
         if (amount < 0) {
             throw new IllegalArgumentException("Negative amount");
