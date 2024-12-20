@@ -7,9 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CsvReader {
-    public List<ConversionRecord> readCSV(String fileName) {
+    private final String csvFile;
+
+    public CsvReader(String csvFile) {
+        this.csvFile = csvFile;
+    }
+
+    public List<ConversionRecord> records() {
         List<ConversionRecord> records = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             String line;
             boolean isFirstLine = true;
 
