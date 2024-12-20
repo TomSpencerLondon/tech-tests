@@ -151,6 +151,7 @@ Debugging Checklist
    - Round to 2 decimals
    - Conversion rate = 4 decimal places
    - symbols and codes $ = USD, € = EUR, £ = GBP, ¥ = JPY, ₹ = INR
+   - 
 
 2. Initial Code Review
    Look for obvious errors or misalignments with the requirements.

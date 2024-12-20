@@ -3,14 +3,14 @@ package org.example;
 class ConversionRecord {
     private final int id;
     private final double amount;
-    private final String sourceCurrency;
-    private final String targetCurrency;
+    private final Currency sourceCurrency;
+    private final Currency targetCurrency;
 
     public ConversionRecord(int id, double amount, String sourceCurrency, String targetCurrency) {
         this.id = id;
         this.amount = amount;
-        this.sourceCurrency = sourceCurrency;
-        this.targetCurrency = targetCurrency;
+        this.sourceCurrency = Currency.valueOf(sourceCurrency);
+        this.targetCurrency = Currency.valueOf(targetCurrency);
     }
 
     public int getId() {
@@ -22,10 +22,10 @@ class ConversionRecord {
     }
 
     public String getSourceCurrency() {
-        return sourceCurrency;
+        return sourceCurrency.toString();
     }
 
     public String getTargetCurrency() {
-        return targetCurrency;
+        return targetCurrency.toString();
     }
 }

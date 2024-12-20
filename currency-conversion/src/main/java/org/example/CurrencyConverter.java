@@ -15,6 +15,10 @@ public class CurrencyConverter {
 
         List<ConversionRecord> records = readCSV(csvFile);
 
+        print(records);
+    }
+
+    private static void print(List<ConversionRecord> records) {
         for (ConversionRecord record : records) {
             double convertedAmount = convertCurrency(record.getAmount(), EXCHANGE_RATE);
             System.out.println(record.getId() + " - " + record.getSourceCurrency() + " to " + record.getTargetCurrency() + ": " + convertedAmount);
