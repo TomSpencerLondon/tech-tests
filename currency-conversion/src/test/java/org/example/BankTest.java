@@ -45,11 +45,20 @@ public class BankTest {
         }
 
         @Test
-        void convertsUSDollarsToEuros() {
-            //        1 USD = 84.80 INR
-            double result = bank.convertCurrency(150.75, 0.848);
+        void convertsEurosToDollars() {
+            //        EUR to Dollars = 0.9527
+            double result = bank.convertCurrency(10.123456789, 1.0519);
 
-            assertEquals(127.84, result);
+            assertEquals(10.65, result);
+        }
+
+        @Test
+        void convertsGBPToDollars() {
+//            1.2695
+
+            double result = bank.convertCurrency(75, 1.2695);
+
+            assertEquals(95.21, result);
         }
 
         @Test

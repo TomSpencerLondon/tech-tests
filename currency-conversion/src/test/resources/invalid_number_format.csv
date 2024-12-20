@@ -1,2 +1,2 @@
 id,amount,source_currency,target_currency,note
-1,100,USD,EUR,Valid Entry
+2,abc,USD,EUR,Non-numeric amount
