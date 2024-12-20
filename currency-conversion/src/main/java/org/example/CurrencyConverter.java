@@ -11,7 +11,7 @@ public class CurrencyConverter {
     private static final double EXCHANGE_RATE = 0.75;
 
     public static void main(String[] args) {
-        String csvFile = "currencies.csv";
+        String csvFile = "src/main/resources/currencies.csv";
 
         List<ConversionRecord> records = readCSV(csvFile);
 

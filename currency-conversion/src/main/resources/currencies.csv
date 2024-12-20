@@ -1,0 +1,10 @@
+id,amount,source_currency,target_currency,note
+1,100,USD,EUR,Valid Entry
+2,abc,USD,EUR,Non-numeric amount
+3,-50,GBP,USD,Negative amount
+4,0,JPY,USD,Zero amount
+5,150.75,USD,INR,Valid Entry
+6,,USD,EUR,Missing amount
+7,10000000000,USD,EUR,Excessively large amount
+8,10.123456789,EUR,USD,Excessive precision
+9,75,GBP,USD,Valid Entry
