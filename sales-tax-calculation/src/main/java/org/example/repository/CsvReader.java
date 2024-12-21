@@ -1,4 +1,4 @@
-package org.example;
+package org.example.repository;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -29,7 +29,6 @@ public class CsvReader implements ItemRepository {
                 String name = parts[0];
                 String category = parts[1];
                 try {
-
                     double price = Double.parseDouble(parts[2]);
                     double taxRate = Double.parseDouble(parts[3]);
                     items.add(new Item(name, category, price, taxRate));

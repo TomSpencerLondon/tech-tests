@@ -1,12 +1,14 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
+import org.example.repository.Item;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TaxCalculatorTest {
+public class CheckoutTest {
 
     @ParameterizedTest
     @CsvSource({
@@ -16,11 +18,12 @@ public class TaxCalculatorTest {
             "Notebook,Books,2.50,0.0"
     })
     void calculatesTaxForBooksWithZeroRateGiven(String itemName, String category, double price, double taxRate) {
-        TaxCalculator taxCalculator = new TaxCalculator();
-
         Item item = new Item(itemName, category, price, taxRate);
+        List<Item> items = List.of(item);
+        Checkout checkout = new Checkout(items);
 
-        double result = taxCalculator.calculateTax(item);
+
+        double result = checkout.calculateTax(item);
 
         assertEquals(0.0, result);
     }
@@ -35,11 +38,11 @@ public class TaxCalculatorTest {
             "Pack of Stationery,Other,5.99,0.1,0.60"
     })
     void calculatesTaxForBooksWithRateGiven(String itemName, String category, double price, double taxRate, double expected) {
-        TaxCalculator taxCalculator = new TaxCalculator();
-
         Item item = new Item(itemName, category, price, taxRate);
+        List<Item> items = List.of(item);
+        Checkout checkout = new Checkout(items);
 
-        double result = taxCalculator.calculateTax(item);
+        double result = checkout.calculateTax(item);
 
         assertEquals(expected, result);
     }

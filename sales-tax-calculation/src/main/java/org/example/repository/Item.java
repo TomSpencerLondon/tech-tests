@@ -1,6 +1,6 @@
-package org.example;
+package org.example.repository;
 
-class Item {
+public class Item {
     private String name;
     private String category;
     private double price;
