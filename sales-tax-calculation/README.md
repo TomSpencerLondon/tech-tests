@@ -39,6 +39,7 @@ Total Price: $29.98
 ### 1. **Clarify Requirements**
 - Ask the Business Analyst (BA) for the expected behavior.
 - Confirm any assumptions and edge cases.
+  - no price / tax = log error and continue
 - Use inputs to add the tax
 - BigDecimal rounding
   - Currency always dollars
