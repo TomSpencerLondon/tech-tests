@@ -52,7 +52,7 @@ public class CsvReaderTest {
     }
 
     @Test
-    void invalidNumericInputThrowsNumberFormatException() {
+    void invalidNumericInputLogsError() {
         CsvReader csvReader = new CsvReader("src/test/resources/invalid_number_format.csv", logger);
         ArgumentCaptor<String> logMessageCaptor = ArgumentCaptor.forClass(String.class);
 
@@ -60,5 +60,16 @@ public class CsvReaderTest {
 
         verify(logger, times(1)).log(Level.WARNING,
                 "Incorrect currency format for line: 2,abc,USD,EUR,Non-numeric amount");
+    }
+
+    @Test
+    void emptyNumberLogsError() {
+        CsvReader csvReader = new CsvReader("src/test/resources/invalid_number_format.csv", logger);
+        ArgumentCaptor<String> logMessageCaptor = ArgumentCaptor.forClass(String.class);
+
+        csvReader.records();
+
+        verify(logger, times(1)).log(Level.WARNING,
+                "Incorrect currency format for line: 6,,USD,EUR,Missing amount");
     }
 }
