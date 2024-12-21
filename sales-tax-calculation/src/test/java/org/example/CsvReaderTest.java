@@ -10,11 +10,13 @@ public class CsvReaderTest {
 
     @Test
     void readsCorrectInput() {
-
-        List<Item> items = CsvReader.readItemsFromFile("src/test/resources/correct_test_input.csv");
+        ItemRepository csvReader = new CsvReader("src/test/resources/correct_test_input.csv");
+        List<Item> items = csvReader.findAll();
 
         Item expected = new Item("Chocolate Bar", "Food", 1.00, 0.00);
         assertThat(items)
                 .containsExactly(expected);
     }
+
+
 }

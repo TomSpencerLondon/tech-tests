@@ -6,7 +6,8 @@ public class SalesTaxCalculator {
 
     public static void main(String[] args) {
         String fileName = "src/main/resources/input.csv";
-        List<Item> items = CsvReader.readItemsFromFile(fileName);
+        ItemRepository csvReader = new CsvReader(fileName);
+        List<Item> items = csvReader.findAll();
         TaxCalculator taxCalculator = new TaxCalculator();
 
         double totalTax = 0;

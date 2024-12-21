@@ -6,8 +6,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CsvReader {
-    static List<Item> readItemsFromFile(String fileName) {
+public class CsvReader implements ItemRepository {
+
+    private final String fileName;
+
+    public CsvReader(String fileName) {
+        this.fileName = fileName;
+    }
+
+     @Override
+     public List<Item> findAll() {
         List<Item> items = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
