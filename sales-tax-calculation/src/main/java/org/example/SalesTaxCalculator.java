@@ -1,12 +1,14 @@
 package org.example;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 public class SalesTaxCalculator {
 
     public static void main(String[] args) {
         String fileName = "src/main/resources/input.csv";
-        ItemRepository csvReader = new CsvReader(fileName);
+        Logger logger = Logger.getLogger(CsvReader.class.getName());
+        ItemRepository csvReader = new CsvReader(fileName, logger);
         List<Item> items = csvReader.findAll();
         TaxCalculator taxCalculator = new TaxCalculator();
 
