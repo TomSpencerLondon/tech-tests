@@ -6,14 +6,15 @@ import java.util.*;
 public class SalesTaxCalculator {
 
     public static void main(String[] args) {
-        String fileName = "input.csv";
+        String fileName = "src/main/resources/input.csv";
         List<Item> items = readItemsFromFile(fileName);
+        TaxCalculator taxCalculator = new TaxCalculator();
 
         double totalTax = 0;
         double totalCost = 0;
 
         for (Item item : items) {
-            double tax = calculateTax(item);
+            double tax = taxCalculator.calculateTax(item);
             item.setTax(tax);
             item.setTotalPrice(item.getPrice() + tax);
 
@@ -24,6 +25,7 @@ public class SalesTaxCalculator {
         for (Item item : items) {
             System.out.printf("%s: $%.2f (Tax: $%.2f)%n", item.getName(), item.getPrice(), item.getTax());
         }
+        
         System.out.printf("Total Tax: $%.2f%n", totalTax);
         System.out.printf("Total Price: $%.2f%n", totalCost);
     }
@@ -32,7 +34,7 @@ public class SalesTaxCalculator {
         List<Item> items = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
-            br.readLine(); // Skip header
+            br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 String name = parts[0];
@@ -44,16 +46,8 @@ public class SalesTaxCalculator {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return items;
     }
 
-    private static double calculateTax(Item item) {
-        if (item.getCategory().equalsIgnoreCase("Food") ||
-                item.getCategory().equalsIgnoreCase("Books") ||
-                item.getCategory().equalsIgnoreCase("Medical")) {
-            return item.getPrice() * 0.05; // Incorrect logic for exempt items
-        } else {
-            return item.getPrice() * item.getTaxRate();
-        }
-    }
 }

@@ -2,3 +2,10 @@ item_name,category,price,tax_rate
 Chocolate Bar,Food,1.00,0.0
 Music CD,Other,14.99,0.1
 Book,Books,12.49,0.0
+Imported Perfume,Other,47.50,0.15
+Packet of Headache Pills,Medical,9.75,0.0
+Bottle of Wine,Other,20.00,0.2
+Packet of Imported Chocolates,Food,11.25,0.05
+Notebook,Books,2.50,0.0
+Smartphone,Electronics,199.99,0.2
+Pack of Stationery,Other,5.99,0.1

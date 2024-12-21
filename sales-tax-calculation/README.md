@@ -2,7 +2,9 @@
 
 #### Role: Business Analyst (BA)
 
-The company requires a system to calculate sales tax for purchased items based on their categories. Tax-exempt items include food, books, and medical products. A CSV file will serve as input for the system, containing item names, categories, prices, and tax rates.
+The company requires a system to calculate sales tax for purchased items based on their categories. 
+Tax-exempt items include food, books, and medical products. 
+A CSV file will serve as input for the system, containing item names, categories, prices, and tax rates.
 
 #### Business Requirements
 1. **Calculate Tax:** The system should calculate sales tax for each item based on its category.
@@ -30,3 +32,34 @@ Total Price: $29.98
 ```
 
 ---
+
+
+## Debugging Checklist
+
+### 1. **Clarify Requirements**
+- Ask the Business Analyst (BA) for the expected behavior.
+- Confirm any assumptions and edge cases.
+- Use inputs to add the tax
+- BigDecimal rounding
+  - Currency always dollars
+- receipt format: each item is individual
+
+### 2. **Initial Code Review**
+- Look for obvious errors or misalignments with the requirements.
+- Check for common mistakes like typos, logic errors, or missing conditions.
+
+### 3. **Reproduce the Issue**
+- Identify and reproduce the bug consistently.
+- Document the steps leading to the issue.
+
+### 4. **Examine the Code**
+- Inspect the relevant code sections for potential flaws.
+- Check for off-by-one errors, incorrect conversions, or missed conditions.
+
+### 5. **Test Fixes**
+- Implement a fix and verify it solves the problem.
+- Ensure no new issues are introduced.
+
+### 6. **Create Tests**
+- Write tests to cover the fixed issue and other edge cases.
+- Confirm all tests pass successfully.
