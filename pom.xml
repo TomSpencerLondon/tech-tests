@@ -11,8 +11,7 @@
 
     <modules>
         <module>miles-to-kilometers</module>
-        <module>miles-to-kilometers</module>
-        <!-- Add other modules here -->
+        <module>currency-conversion</module>
     </modules>
 
     <properties>
