@@ -19,6 +19,7 @@ This repository is designed to help you practice identifying and fixing common b
     - Using a hardcoded or outdated exchange rate.
     - Not handling different currency formats correctly.
     - Precision issues with floating-point arithmetic.
+  - [View the detailed `README.md` for Currency Conversion](sales-tax-calculation/README.md)
 
 ### 3. **Sales Tax Calculation**
 - **Common Bugs:**
