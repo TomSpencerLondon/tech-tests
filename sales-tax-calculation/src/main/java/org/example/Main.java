@@ -10,14 +10,12 @@ import java.util.logging.Logger;
 public class Main {
 
     public static void main(String[] args) {
-        String fileName = "src/main/resources/input.csv";
+        String file = Objects.requireNonNull(Main.class.getClassLoader().getResource("input.csv")).getFile();
         Logger logger = Logger.getLogger(CsvReader.class.getName());
-        ItemRepository csvReader = new CsvReader(fileName, logger);
+        ItemRepository csvReader = new CsvReader(file, logger);
         List<Item> items = csvReader.findAll();
-        Checkout checkout = new Checkout(items);
+        Checkout checkout = new Checkout(items, new Printer());
         checkout.process();
-        Printer printer = new Printer(checkout);
-        printer.print();
+        checkout.print();
     }
-
 }

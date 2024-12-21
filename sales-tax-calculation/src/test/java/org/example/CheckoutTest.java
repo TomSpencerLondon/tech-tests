@@ -20,7 +20,7 @@ public class CheckoutTest {
     void calculatesTaxForBooksWithZeroRateGiven(String itemName, String category, double price, double taxRate) {
         Item item = new Item(itemName, category, price, taxRate);
         List<Item> items = List.of(item);
-        Checkout checkout = new Checkout(items);
+        Checkout checkout = new Checkout(items, new Printer());
 
 
         double result = checkout.calculateTax(item);
@@ -40,7 +40,7 @@ public class CheckoutTest {
     void calculatesTaxForBooksWithRateGiven(String itemName, String category, double price, double taxRate, double expected) {
         Item item = new Item(itemName, category, price, taxRate);
         List<Item> items = List.of(item);
-        Checkout checkout = new Checkout(items);
+        Checkout checkout = new Checkout(items, new Printer());
 
         double result = checkout.calculateTax(item);
 

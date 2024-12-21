@@ -6,14 +6,20 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Checkout {
+    private final Printer printer;
     private BigDecimal totalTax;
     private BigDecimal totalCost;
     private List<Item> items;
 
-    public Checkout(List<Item> items) {
+    public Checkout(List<Item> items, Printer printer) {
         this.items = items;
         this.totalTax = new BigDecimal(0);
         this.totalCost = new BigDecimal(0);
+        this.printer = printer;
+    }
+
+    public void print() {
+        printer.print(items, totalTax, totalCost);
     }
 
     public void process() {
